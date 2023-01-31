@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public enum Sex {
-}
+public enum Sex {
+
+        MAN,
+        WOMAN
+    }
+
