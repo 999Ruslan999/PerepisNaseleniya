@@ -20,22 +20,20 @@ public class Main {
             );
         }
 
-       long list = persons.stream()
+        long list = persons.stream()
                 .filter(x -> x.getAge() < 18).count(); // 17 лет, это не совершенно летний, нужно включить его в фильтр
         System.out.println(list);
-       List<Person> priziv = persons.stream()
+        List<Person> priziv = persons.stream()
                 .filter(x -> x.getAge() > 17 && x.getAge() < 27) // с 18 лет включительно призывной возраст до 26 лет включительно
                 .filter(x -> x.getSex() == Sex.MAN).collect(Collectors.toList());
         System.out.println(priziv);
-       List<Person> rabota = persons.stream()
+        List<Person> rabota = persons.stream()
                 .filter(education -> education.getEducation().equals(Education.HIGHER))
                 .filter(ege -> ege.getAge() > 18)
                 .filter(age -> (age.getAge() < 65) && age.getSex().equals(Sex.MAN) || (age.getAge() < 60) && age.getSex().equals(Sex.WOMAN))
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
         System.out.println(rabota);
-
-
 
 
     }
